@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact the legends</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    {% include "header.html" %}
+    <br />
+    <br />
+    <main>
+      <div class="container">
+        <form class="row g-3" background_color="#bbb">
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" />
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputPassword4" />
+          </div>
+
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputAddress"
+              placeholder="1234 Main St"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputCity" class="form-label">City</label>
+            <input type="text" class="form-control" id="inputCity" />
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submmit</button>
+          </div>
+        </form>
+
+        <br />
+        <div class="container">
+          <div class="text-center">
+            <h1>Our location</h1>
+          </div>
+          <div class="row">
+            {% for single_place in places %}
+
+            <div class="col-lg-4 md-3 sm-6">
+              <div class="card">
+                <img
+                  style="width: auto; height: 350px"
+                  src="{{single_place.image.url}}"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">{{single_place.location_address}}</h5>
+                  <p class="card-text">{{single_place.locaton_description}}</p>
+                </div>
+              </div>
+            </div>
+
+            {% endfor %}
+          </div>
+        </div>
+        <br />
+        <div class="container text-center">
+          <div class="row">
+            <div class="col align-self-center">
+              <h4>{{Cont.To}}</h4>
+              <h4>{{Cont.email}}</h4>
+              <h4>{{Cont.Number}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+    </main>
+    {% include "footer.html" %}
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
